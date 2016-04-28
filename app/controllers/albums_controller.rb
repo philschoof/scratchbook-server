@@ -1,10 +1,11 @@
-class AlbumsController < ApplicationController
+class AlbumsController < ProtectedController
   before_action :set_album, only: [:show, :update, :destroy]
 
   # GET /albums
   # GET /albums.json
   def index
-    @albums = Album.all
+
+    @albums = current_user.albums
 
     render json: @albums
   end

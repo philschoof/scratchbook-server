@@ -5,5 +5,4 @@ class User < ActiveRecord::Base
   has_many :albums
 end
 
-
 # routes models migration contraints

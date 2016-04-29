@@ -4,3 +4,6 @@ class User < ActiveRecord::Base
   has_many :examples, inverse_of: :users
   has_many :albums
 end
+
+
+# routes models migration contraints

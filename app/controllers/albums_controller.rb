@@ -5,7 +5,7 @@ class AlbumsController < ProtectedController
   # GET /albums.json
   def index
 
-    @albums = current_user.albums
+    @albums = current_user.albums.order("id DESC").all
 
     render json: @albums
   end

@@ -3,9 +3,3 @@ class AddAlbumToUser < ActiveRecord::Migration
     add_reference :users, :album, index: true, foreign_key: true
   end
 end
-
-
-# flip this
-#
-# add nested routes
-#

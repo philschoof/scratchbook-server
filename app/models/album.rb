@@ -5,4 +5,5 @@ class Album < ActiveRecord::Base
   validates :title, presence: true
   validates :artist, presence: true
 
+  validates :user, uniqueness: { scope: [:title, :artist] }
 end

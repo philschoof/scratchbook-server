@@ -17,8 +17,8 @@ ActiveRecord::Schema.define(version: 20160428030433) do
   enable_extension "plpgsql"
 
   create_table "albums", force: :cascade do |t|
-    t.string   "title"
-    t.string   "artist"
+    t.string   "title",       null: false
+    t.string   "artist",      null: false
     t.string   "cover"
     t.text     "description"
     t.text     "thoughts"
@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 20160428030433) do
     t.datetime "updated_at",  null: false
   end
 
+  add_index "albums", ["title", "artist"], name: "index_albums_on_title_and_artist", unique: true, using: :btree
   add_index "albums", ["user_id"], name: "index_albums_on_user_id", using: :btree
 
   create_table "examples", force: :cascade do |t|
@@ -42,13 +43,15 @@ ActiveRecord::Schema.define(version: 20160428030433) do
     t.string   "email",           null: false
     t.string   "token",           null: false
     t.string   "password_digest", null: false
+    t.string   "username",        null: false
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
-    t.string   "username"
   end
 
+  add_index "users", ["email", "username"], name: "index_users_on_email_and_username", unique: true, using: :btree
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["token"], name: "index_users_on_token", unique: true, using: :btree
+  add_index "users", ["username"], name: "index_users_on_username", unique: true, using: :btree
 
   add_foreign_key "albums", "users"
   add_foreign_key "examples", "users"

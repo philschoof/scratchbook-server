@@ -8,6 +8,7 @@ gem 'rack-cors', require: 'rack/cors'
 gem 'pg'
 gem 'bcrypt', '~> 3.1.11'
 gem 'httparty', '~> 0.13.7'
+gem 'dotenv-rails', '~> 2.1.1'
 
 group :production do
   gem 'rails_12factor', '~> 0.0.3'
@@ -17,7 +18,7 @@ group :development, :test do
   gem 'pry', '~> 0.10.3'
   gem 'byebug', '~> 8.2.2'
   gem 'pry-byebug', '~> 3.3.0'
-  gem 'dotenv-rails', '~> 2.1.1'
+
 end
 
 group :development do

@@ -3,7 +3,7 @@ class CoversController < ApplicationController
   def cover
     title = album_params[:title]
     artist = album_params[:artist]
-    response = HTTParty.get('http://ws.audioscrobbler.com/2.0/?method=album.getinfo&api_key=' + ENV['LASTFM_KEY'] + '&artist=' + artist + '&album=' + title + '&format=json')
+    response = HTTParty.get("http://ws.audioscrobbler.com/2.0/?method=album.getinfo&api_key=#{ENV['LASTFM_KEY']}&artist=#{artist}&album=#{title}&format=json")
 
     render json: response.body
   end

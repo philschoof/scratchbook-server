@@ -1,10 +1,10 @@
+#
 class AlbumsController < ProtectedController
   before_action :set_album, only: [:show, :update, :destroy]
 
   # GET /albums
   # GET /albums.json
   def index
-
     @albums = current_user.albums.order("id DESC").all
 
     render json: @albums
@@ -47,6 +47,7 @@ class AlbumsController < ProtectedController
 
     head :no_content
   end
+
 
   private
 

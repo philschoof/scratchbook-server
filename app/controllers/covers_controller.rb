@@ -1,7 +1,6 @@
 class CoversController < ApplicationController
   # album cover action
   def cover
-    require 'HTTParty'
     title = album_params[:title]
     artist = album_params[:artist]
     response = HTTParty.get("http://ws.audioscrobbler.com/2.0/?method=album.getinfo&api_key=#{ENV['LASTFM_KEY']}&artist=#{artist}&album=#{title}&format=json")
